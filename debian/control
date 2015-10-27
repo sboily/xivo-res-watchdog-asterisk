@@ -1,0 +1,20 @@
+Source: res-watchdog
+Priority: extra
+Maintainer: Sylvain Boily <sboily@avencall.com>
+Build-Depends: debhelper (>= 7.0.50~), asterisk-dev (>= 13.5.0)
+Standards-Version: 3.8.4
+Section: comm
+
+Package: res-watchdog
+Section: comm
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, asterisk (>= 13.5.0)
+Description: Module for Asterisk with ISDNGUARD
+ Module to connect Asterisk with ISDNGUARD
+
+Package: res-watchdog-dbg
+Section: comm
+Architecture: any
+Depends: res-watchdog (= ${Source-Version})
+Description: Module for Asterisk with ISDNGUARD
+ Module to connect Asterisk with ISDNGUARD
