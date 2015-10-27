@@ -53,7 +53,7 @@ $(BINARY): $(OBJECTS)
 	$(CC) -o $(BINARY) $(OBJECTS) $(Z_LIBS)
 
 %.o: %.c
-	./gwr.py $< --- $(CC) $(Z_CFLAGS) -c -o $@ $<
+	$(CC) $(Z_CFLAGS) -c -o $@ $<
 
 install: $(BINARY)
 	install -d $(DESTDIR)$(PREFIX)/lib/asterisk/modules

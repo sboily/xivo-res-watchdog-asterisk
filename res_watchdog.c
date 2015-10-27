@@ -249,8 +249,9 @@ static int load_module(void)
 	     *userial, *ubitrate, *uparity, *ustop, *uflow, *ubits;
 	struct ast_config *cfg;
 	struct watchdog_pvt *woof = NULL;
+    struct ast_flags config_flags = { 0 ? CONFIG_FLAG_FILEUNCHANGED : 0 };
 
-	cfg = ast_config_load("watchdog.conf");
+	cfg = ast_config_load("watchdog.conf", config_flags);
 	if (cfg) {
 	
 	    cat = ast_category_browse(cfg, NULL);
@@ -338,9 +339,7 @@ static int unload_module(void)
 	return 0;
 }
 
-AST_MODULE_INFO_STANDARD(ASTERISK_GPL_KEY, "Watchdog API");/* WWW [1] */
-
-/*
- * [1]: 'static' is not at beginning of declaration
- *      harmless
- */
+AST_MODULE_INFO(ASTERISK_GPL_KEY, AST_MODFLAG_DEFAULT, "Watchdog API",
+    .load = load_module,
+    .unload = unload_module,
+);
