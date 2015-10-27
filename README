@@ -4,3 +4,7 @@ http://212.91.251.199/~junghanns.net/downloads/isdnguard-asterisk-1.2.13.patch
 
 This is a backport from xivo gallifrey to work with asterisk 13.
 
+On a XiVO with every components to compile.
+
+    make
+    make install
