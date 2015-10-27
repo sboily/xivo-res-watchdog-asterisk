@@ -309,7 +309,9 @@ static int load_module(void)
 			}
 			if (!strncmp(utype, "isdnguard", strlen(utype))) {
 			    woof->type = 1;
-			    write(woof->fd, "START\n", 6);
+			    if (write(woof->fd, "START\n", 6) <= 0) {
+			    	ast_log(LOG_ERROR, "Can't write info\n");
+                }
 			}
 			ast_pthread_create(&woof->watchdog_thread, NULL, do_watchdog_thread, woof);
 		    } else {
