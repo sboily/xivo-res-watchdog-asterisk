@@ -249,7 +249,7 @@ static int load_module(void)
 	     *userial, *ubitrate, *uparity, *ustop, *uflow, *ubits;
 	struct ast_config *cfg;
 	struct watchdog_pvt *woof = NULL;
-    struct ast_flags config_flags = { 0 ? CONFIG_FLAG_FILEUNCHANGED : 0 };
+	struct ast_flags config_flags = { 0 ? CONFIG_FLAG_FILEUNCHANGED : 0 };
 
 	cfg = ast_config_load("watchdog.conf", config_flags);
 	if (cfg) {
